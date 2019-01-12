@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+List of Vote Topics
+{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for topic in object_list %}
+    <li>{{ topic.proposal }} by <em>{{ topic.owner }}</em> <br>
+    <span class="label label-success">{{ topic.vote_results.yes }}</span>
+    <span class="label label-danger">{{ topic.vote_results.no }}</span>
+    <span class="label label-warning">{{ topic.vote_results.abstain }}</span>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
